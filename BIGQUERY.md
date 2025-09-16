@@ -6,10 +6,23 @@ This document provides instructions for the Gemini agent to assist users with th
 
 This section covers connecting to a BigQuery instance.
 
-1. **Verify Environment Variables**: Before attempting to connect, confirm with the user that the following environment variables are set in the extension configuration or their shell environment.
+1.  **Verify Environment Variables**: Before attempting to connect, confirm with the user that the following environment variables are set in the extension configuration or their shell environment.
 
     * `BIGQUERY_PROJECT`: The GCP project ID.
 
-2. **Handle Missing Variables**: If a command fails with an error message containing a placeholder like `${BIGQUERY_PROJECT}`, it signifies a missing environment variable. Inform the user which variable is missing and instruct them to set it.
+2.  **Handle Missing Variables**: If a command fails with an error message containing a placeholder like `${BIGQUERY_PROJECT}`, it signifies a missing environment variable. Inform the user which variable is missing and instruct them to set it.
 
-3. **Handle Permission Errors**: If you encounter permission errors, ensure the user has the correct BigQuery permissions (e.g., `bigquery.jobs.create`, `bigquery.datasets.getData`, `bigquery.tables.list`).
+3.  **Handle Permission Errors**:
+    * For operations that execute queries and view metadata, the user needs the
+      **BigQuery User** (`roles/bigquery.user`) and **BigQuery Metadata Viewer** (`roles/bigquery.metadataViewer`) role.
+    * For operations that create, or modify datasets and tables, the user neds
+      the **BigQuery Data Editor** (`roles/bigquery.dataEditor`) role.
+    * To use the conversational analytics API, the user needs the **Gemini for
+      Google Cloud** (`roles/cloudaicompanion.user`) role.
+    * If an operation fails due to permissions, identify the type of operation
+      and recommend the appropriate role. you can provide these links for
+      assistance:
+        *   Granting Roles: https://cloud.google.com/iam/docs/grant-role-console
+        *   BigQuery Permissions:
+            https://cloud.google.com/iam/docs/roles-permissions/bigquery
+        *   Gemini for Google Cloud API Permissions: https://cloud.google.com/iam/docs/roles-permissions/cloudaicompanion

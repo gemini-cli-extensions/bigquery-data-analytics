@@ -1,7 +1,7 @@
 {
-  "name": "BigQuery",
+  "name": "bigquery-data-analytics",
   "version": "0.1.0",
-  "description": "Connect to BigQuery",
+  "description": "Connect and interact with BigQuery data using natural language.",
   "mcpServers": {
     "BigQuery": {
       "command": "${extensionPath}${/}toolbox",

@@ -1,6 +1,6 @@
 # Gemini CLI Extension - BigQuery
 
-Developers can effortlessly connect and interact with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands without ever leaving your terminal.
+Developers can effortlessly connect, interact, and generate data insights with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands.
 
 Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md).
 ## Why Use the BigQuery Extension?

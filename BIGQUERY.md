@@ -1,6 +1,3 @@
-# BigQuery Extension
-
-This document provides instructions for the Gemini agent to assist users with the BigQuery extension.
 
 ## BigQuery MCP Server (Data Plane: Connecting and Querying)
 

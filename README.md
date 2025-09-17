@@ -1,11 +1,8 @@
 # Gemini CLI Extension - BigQuery
 
-This Gemini CLI extension provides a set of tools to interact with
-[BigQuery](https://cloud.google.com/bigquery/docs) instances. It allows you to
-manage your databases, execute queries, and explore schemas directly from the
-[Gemini CLI](https://google-gemini.github.io/gemini-cli/), using natural
-language prompts.
+Developers can effortlessly connect and interact with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands without ever leaving your terminal.
 
+Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md).
 ## Why Use the BigQuery Extension?
 
 *   **Natural Language Management:** Stop wrestling with complex commands. Explore schemas and query data by describing what you want in plain English.
@@ -23,14 +20,13 @@ Before you begin, ensure you have the following:
         metadata)
     *   BigQuery Metadata Viewer (`roles/bigquery.metadataViewer`) (for viewing all datasets)
     *   BigQuery Data Editor (`roles/bigquery.dataEditor`) (for creating or modify datasets and tables)
-    *   Gemini for Google Cloud (`roles/cloudaicompanion.user`) (for conversational analytics API)
 
 ## Installation
 
 To install the extension, use the command:
 
 ```bash
-gemini extensions install github.com/gemini-cli-extensions/bigquery
+gemini extensions install github.com/gemini-cli-extensions/bigquery-data-analytics
 ```
 
 ## Configuration
@@ -44,8 +40,8 @@ gemini extensions install github.com/gemini-cli-extensions/bigquery
 Interact with BigQuery using natural language right from your IDE:
 
 *   **Explore Schemas and Data:**
-    * "Show me all tables in the 'orders' database."
-    * "What are the columns in the 'products' table?"
+    * "Show me all tables in the 'orders' dataset."
+    * "What is the schema for the 'products' table?"
     * "How many orders were placed in the last 30 days, and what were the top 5 most purchased items?"
 
 *   **Generate Code:**
@@ -64,7 +60,7 @@ This extension provides a comprehensive set of tools:
 
 ## Additional Extensions
 
-Find additional extensions to support your entire software development lifecycle at [github.com/gemini-cli-extensions](https://github.com/gemini-cli-extensions), including a generic [PostgreSQL extension](https://github.com/gemini-cli-extensions/postgres).
+Find additional extensions to support your entire software development lifecycle at [github.com/gemini-cli-extensions](https://github.com/gemini-cli-extensions).
 
 ## Troubleshooting
 

@@ -1,4 +1,4 @@
-# Gemini CLI Extension - BigQuery
+# Gemini CLI Extension - BigQuery Data Analytics
 
 Developers can effortlessly connect, interact, and generate data insights with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands.
 

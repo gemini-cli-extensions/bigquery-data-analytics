@@ -15,5 +15,6 @@
       }
     }
   },
-  "contextFileName": "BIGQUERY.md"
+  "contextFileName": "BIGQUERY.md",
+  "excludeTools": ["ask_data_insights"]
 }

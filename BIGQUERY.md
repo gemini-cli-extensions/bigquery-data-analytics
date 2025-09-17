@@ -14,8 +14,6 @@ This section covers connecting to a BigQuery instance.
       **BigQuery User** (`roles/bigquery.user`) and **BigQuery Metadata Viewer** (`roles/bigquery.metadataViewer`) role.
     * For operations that create, or modify datasets and tables, the user neds
       the **BigQuery Data Editor** (`roles/bigquery.dataEditor`) role.
-    * To use the conversational analytics API, the user needs the **Gemini for
-      Google Cloud** (`roles/cloudaicompanion.user`) role.
     * If an operation fails due to permissions, identify the type of operation
       and recommend the appropriate role. you can provide these links for
       assistance:

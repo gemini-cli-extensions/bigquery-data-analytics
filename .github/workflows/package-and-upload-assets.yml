@@ -18,7 +18,7 @@ name: Package and Upload Release Assets
 env:
   PACKAGE_NAME: "biqquery-data-analytics"
   FILES_TO_PACKAGE: "gemini-extension.json BIGQUERY.md LICENSE"
-  GCS_BUCKET_URL: "https://storage.googleapis.com/genai-toolbox-extensions"
+  GCS_BUCKET_URL: "https://storage.googleapis.com/genai-toolbox"
 
 on:
   release:
@@ -32,10 +32,10 @@ jobs:
     strategy:
       matrix:
         platform:
-          - { os: "linux", arch: "x64", download_path_segment: "linux/amd64", binary_suffix: "", archive_extension: "tar.gz", archive_command: 'tar -czvf "${ARCHIVE_NAME}" -C staging .' }
-          - { os: "darwin", arch: "arm64", download_path_segment: "darwin/arm64", binary_suffix: "", archive_extension: "tar.gz", archive_command: 'tar -czvf "${ARCHIVE_NAME}" -C staging .' } 
-          - { os: "darwin", arch: "x64", download_path_segment: "darwin/amd64", binary_suffix: "", archive_extension: "tar.gz", archive_command: 'tar -czvf "${ARCHIVE_NAME}" -C staging .' }
-          - { os: "win32", arch: "x64", download_path_segment: "windows/amd64", binary_suffix: ".exe", archive_extension: "zip", archive_command: '(cd staging && zip ../"${ARCHIVE_NAME}" *)' }
+          - { os: "linux", arch: "x64", download_path_segment: "linux/amd64/toolbox-extensions", binary_suffix: "", archive_extension: "tar.gz", archive_command: 'tar -czvf "${ARCHIVE_NAME}" -C staging .' }
+          - { os: "darwin", arch: "arm64", download_path_segment: "darwin/arm64/toolbox-extensions", binary_suffix: "", archive_extension: "tar.gz", archive_command: 'tar -czvf "${ARCHIVE_NAME}" -C staging .' } 
+          - { os: "darwin", arch: "x64", download_path_segment: "darwin/amd64/toolbox-extensions", binary_suffix: "", archive_extension: "tar.gz", archive_command: 'tar -czvf "${ARCHIVE_NAME}" -C staging .' }
+          - { os: "win32", arch: "x64", download_path_segment: "windows/amd64/toolbox-extensions.exe", binary_suffix: ".exe", archive_extension: "zip", archive_command: '(cd staging && zip ../"${ARCHIVE_NAME}" *)' }
     
     steps:
       - name: Checkout code at the new tag
@@ -47,7 +47,7 @@ jobs:
         id: vars
         run: |
           echo "archive_name=${{ matrix.platform.os }}.${{ matrix.platform.arch }}.${{ env.PACKAGE_NAME }}.${{ matrix.platform.archive_extension }}" >> $GITHUB_OUTPUT
-          echo "source_binary=toolbox${{ matrix.platform.binary_suffix }}" >> $GITHUB_OUTPUT
+          echo "target_binary=toolbox${{ matrix.platform.binary_suffix }}" >> $GITHUB_OUTPUT
 
       - name: Get Toolbox Version
         id: get_toolbox_version
@@ -60,12 +60,11 @@ jobs:
         env:
           TOOLBOX_VERSION: ${{ steps.get_toolbox_version.outputs.TOOLBOX_VERSION }}
           DOWNLOAD_PATH_SEGMENT: ${{ matrix.platform.download_path_segment }}
-          SOURCE_BINARY: ${{ steps.vars.outputs.source_binary }}
         run: |
-          DOWNLOAD_URL="${GCS_BUCKET_URL}/v${TOOLBOX_VERSION}/${DOWNLOAD_PATH_SEGMENT}/${SOURCE_BINARY}"
+          DOWNLOAD_URL="${GCS_BUCKET_URL}/v${TOOLBOX_VERSION}/${DOWNLOAD_PATH_SEGMENT}"
           
           echo "Downloading binary from: ${DOWNLOAD_URL}"
-          curl -L --fail -o "${SOURCE_BINARY}" "${DOWNLOAD_URL}"
+          curl -L --fail -o "${target_binary}" "${DOWNLOAD_URL}"
           
           echo "Binary downloaded and prepared."
           ls -l
@@ -75,15 +74,15 @@ jobs:
         env:
           ARCHIVE_COMMAND: ${{ matrix.platform.archive_command }}
           ARCHIVE_NAME: ${{ steps.vars.outputs.archive_name }}
-          SOURCE_BINARY: ${{ steps.vars.outputs.source_binary }}
+          target_binary: ${{ steps.vars.outputs.target_binary }}
         run: |
           ARCHIVE_NAME="${{ matrix.platform.os }}.${{ matrix.platform.arch }}.${PACKAGE_NAME}.${{ matrix.platform.archive_extension }}"
-          SOURCE_BINARY="toolbox${{ matrix.platform.binary_suffix }}"
+          target_binary="toolbox${{ matrix.platform.binary_suffix }}"
 
-          echo "Packaging ${SOURCE_BINARY} into ${ARCHIVE_NAME}"
+          echo "Packaging ${target_binary} into ${ARCHIVE_NAME}"
 
           mkdir staging
-          cp "${SOURCE_BINARY}" "staging/${SOURCE_BINARY}"
+          cp "${target_binary}" "staging/${target_binary}"
           cp ${FILES_TO_PACKAGE} staging/
 
           if [[ "${{ matrix.platform.os }}" == "win32" ]]; then

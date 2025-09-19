@@ -20,4 +20,3 @@ This section covers connecting to a BigQuery instance.
         *   Granting Roles: https://cloud.google.com/iam/docs/grant-role-console
         *   BigQuery Permissions:
             https://cloud.google.com/iam/docs/roles-permissions/bigquery
-        *   Gemini for Google Cloud API Permissions: https://cloud.google.com/iam/docs/roles-permissions/cloudaicompanion

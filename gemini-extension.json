@@ -6,8 +6,8 @@
     "BigQuery": {
       "command": "${extensionPath}${/}toolbox",
       "args": [
-        "--prebuilt",
-        "bigquery",
+        "--tools-file",
+        "${extensionPath}${/}tools.yaml",
         "--stdio"
       ],
       "env": {

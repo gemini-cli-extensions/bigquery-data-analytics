@@ -1,9 +1,10 @@
-# Gemini CLI Extension - BigQuery
+# Gemini CLI Extension - BigQuery Data Analytics
 
 Developers can effortlessly connect, interact, and generate data insights with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands.
 
 Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md).
-## Why Use the BigQuery Extension?
+
+## Why Use the BigQuery Data Analytics Extension?
 
 *   **Natural Language Management:** Stop wrestling with complex commands. Explore schemas and query data by describing what you want in plain English.
 *   **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts to the GCP console for common database tasks.
@@ -32,7 +33,7 @@ gemini extensions install github.com/gemini-cli-extensions/bigquery-data-analyti
 ## Configuration
 
 *   `BIGQUERY_PROJECT`: The GCP project ID.
-*   `BIGQUERY_LOCATION`: (Optional)
+*   `BIGQUERY_LOCATION`: (Optional) The dataset location.
 *   `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Set to `true` to use client-side OAuth for authorization.
 
 ## Usage Examples
@@ -57,6 +58,8 @@ This extension provides a comprehensive set of tools:
 * `get_table_info`: Get table metadata.
 * `list_dataset_ids`: Lists dataset ids in the database.
 * `list_table_ids`: Lists table ids in the database.
+* `analyze_contribution`: Perform contribution analysis, also called key driver analysis.
+* `search_catalog`: Search for entries based on the provided query.
 
 ## Additional Extensions
 

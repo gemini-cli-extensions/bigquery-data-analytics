@@ -66,6 +66,7 @@ jobs:
           
           echo "Downloading binary from: ${DOWNLOAD_URL}"
           curl -L --fail -o "${SOURCE_BINARY}" "${DOWNLOAD_URL}"
+          chmod +x ${SOURCE_BINARY}
           
           echo "Binary downloaded and prepared."
           ls -l

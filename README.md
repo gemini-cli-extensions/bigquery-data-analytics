@@ -9,9 +9,9 @@ Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini
 
 ## Why Use the BigQuery Data Analytics Extension?
 
-*   **Natural Language Management:** Stop wrestling with complex commands. Explore schemas and query data by describing what you want in plain English.
-*   **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts to the GCP console for common database tasks.
-*   **Code Generation:** Accelerate development by asking Gemini to generate data classes and other code snippets based on your table schemas.
+* **Natural Language to data analytics :** Find required BigQuery tables and ask analytical questions in natural language.  
+* **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts to the GCP console for generating analytical insights.   
+* **Run advanced analytics :** Generate forecasts, run a contributions analysis using built-in advanced tools.
 
 ## Prerequisites
 
@@ -22,8 +22,6 @@ Before you begin, ensure you have the following:
 *   IAM Permissions:
     *   BigQuery User (`roles/bigquery.user`) (for executing queries and view
         metadata)
-    *   BigQuery Metadata Viewer (`roles/bigquery.metadataViewer`) (for viewing all datasets)
-    *   BigQuery Data Editor (`roles/bigquery.dataEditor`) (for creating or modify datasets and tables)
 
 ## Installation
 
@@ -47,13 +45,15 @@ Ensure [Application Default Credentials](https://cloud.google.com/docs/authentic
 
 Interact with BigQuery using natural language right from your IDE:
 
-*   **Explore Schemas and Data:**
-    * "Show me all tables in the 'orders' dataset."
-    * "What is the schema for the 'products' table?"
-    * "How many orders were placed in the last 30 days, and what were the top 5 most purchased items?"
+* **Find Data:**
 
-*   **Generate Code:**
-    * "Generate a Python dataclass to represent the 'customers' table."
+  * "Find tables related to PyPi downloads"  
+  * "Find tables related to Google analytics data in the dataset bigquery-public-data"
+ 
+* **Generate Analytics and insights:**
+
+  * "Using bigquery-public-data.pypi.file\_downloads show me the top 10 downloaded pypi packages this month."  
+  * “Using bigquery-public-data.pypi.file\_downloads can you forecast downloads for the last four months of 2025 for package urllib3?”
 
 ## Supported Tools
 
@@ -66,7 +66,7 @@ This extension provides a comprehensive set of tools:
 * `list_dataset_ids`: Lists dataset ids in the database.
 * `list_table_ids`: Lists table ids in the database.
 * `analyze_contribution`: Perform contribution analysis, also called key driver analysis.
-* `search_catalog`: Search for entries based on the provided query.
+* `search_catalog`: Search for tables based on the provided query.
 
 ## Additional Extensions
 

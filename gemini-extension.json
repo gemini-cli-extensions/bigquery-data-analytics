@@ -9,10 +9,7 @@
         "--tools-file",
         "${extensionPath}${/}tools.yaml",
         "--stdio"
-      ],
-      "env": {
-        "BIGQUERY_PROJECT": "${BIGQUERY_PROJECT}"
-      }
+      ]
     }
   },
   "contextFileName": "BIGQUERY.md"

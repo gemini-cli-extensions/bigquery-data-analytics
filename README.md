@@ -1,7 +1,7 @@
 # Gemini CLI Extension - BigQuery Data Analytics
 
 > [!NOTE]
-> This extension is currently in beta, and may see breaking changes until the first stable release (v1.0).
+> This extension is currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
 
 Developers can effortlessly connect, interact, and generate data insights with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands.
 
@@ -9,8 +9,8 @@ Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini
 
 ## Why Use the BigQuery Data Analytics Extension?
 
-* **Natural Language to data analytics :** Find required BigQuery tables and ask analytical questions in natural language.  
-* **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts to the GCP console for generating analytical insights.   
+* **Natural Language to data analytics :** Find required BigQuery tables and ask analytical questions in natural language.
+* **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts to the GCP console for generating analytical insights.
 * **Run advanced analytics :** Generate forecasts, run a contributions analysis using built-in advanced tools.
 
 ## Prerequisites
@@ -47,12 +47,12 @@ Interact with BigQuery using natural language right from your IDE:
 
 * **Find Data:**
 
-  * "Find tables related to PyPi downloads"  
+  * "Find tables related to PyPi downloads"
   * "Find tables related to Google analytics data in the dataset bigquery-public-data"
- 
+
 * **Generate Analytics and insights:**
 
-  * "Using bigquery-public-data.pypi.file\_downloads show me the top 10 downloaded pypi packages this month."  
+  * "Using bigquery-public-data.pypi.file\_downloads show me the top 10 downloaded pypi packages this month."
   * “Using bigquery-public-data.pypi.file\_downloads can you forecast downloads for the last four months of 2025 for package urllib3?”
 
 ## Supported Tools

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Connect, query, and generate data insights for BigQuery datasets and data.",
   "mcpServers": {
-    "BigQuery Data Analytics": {
+    "bigquery_data_analytics": {
       "command": "${extensionPath}${/}toolbox",
       "args": [
         "--tools-file",

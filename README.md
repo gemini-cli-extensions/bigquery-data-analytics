@@ -6,6 +6,12 @@
 Developers can effortlessly connect, interact, and generate data insights with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands.
 
 Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extensions/index.md).
+> [!IMPORTANT]
+> **We Want Your Feedback!**
+> Please share your thoughts with us by filling out our feedback [form][form]. 
+> Your input is invaluable and helps us improve the project for everyone.
+
+[form]: https://docs.google.com/forms/d/e/1FAIpQLSfEGmLR46iipyNTgwTmIDJqzkAwDPXxbocpXpUbHXydiN1RTw/viewform?usp=pp_url&entry.157487=bigquery-data-analytics
 
 ## Why Use the BigQuery Data Analytics Extension?
 
@@ -13,14 +19,17 @@ Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini
 * **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts to the GCP console for generating analytical insights.
 * **Run advanced analytics :** Generate forecasts, run a contributions analysis using built-in advanced tools.
 
+
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-*   [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
-*   A Google Cloud project with the **BigQuery API** enabled.
-*   IAM Permissions:
-    *   BigQuery User (`roles/bigquery.user`)
+* [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
+* Setup Gemini CLI [Authentication](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#-authentication-options).
+* A Google Cloud project with the **BigQuery API** enabled.
+* Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
+* IAM Permissions:
+    * BigQuery User (`roles/bigquery.user`)
 
 ## Getting Started
 
@@ -34,11 +43,11 @@ gemini extensions install https://github.com/gemini-cli-extensions/bigquery-data
 
 ### Configuration
 
-Set the following environment variables before starting the Gemini CLI:
+Set the following environment variables before starting the Gemini CLI. These variables can be loaded from a `.env` file.
 
-*   `BIGQUERY_PROJECT`: The GCP project ID.
-*   `BIGQUERY_LOCATION`: (Optional) The dataset location.
-*   `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Set to `true` to use client-side OAuth for authorization.
+* `BIGQUERY_PROJECT`: The GCP project ID.
+* `BIGQUERY_LOCATION`: (Optional) The dataset location.
+* `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Set to `true` to use client-side OAuth for authorization.
 
 Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
 

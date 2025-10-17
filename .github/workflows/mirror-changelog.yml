@@ -29,10 +29,12 @@ jobs:
       - name: Add Toolbox Release Notes to PR Body
         uses: actions/github-script@v6
         env:
-          REQUIRED_KEYWORD: 'bigquery'
+          REQUIRED_KEYWORDS: 'bigquery'
         with:
           script: |
-            const requiredKeyword = process.env.REQUIRED_KEYWORD;
+            const requiredKeywordsEnv = process.env.REQUIRED_KEYWORDS;
+            const requiredKeywords = requiredKeywordsEnv.split(',').map(kw => kw.trim()).filter(kw => kw.length > 0);
+
             const prBody = context.payload.pull_request.body || '';
 
             // Extract the relevant changelog section
@@ -80,16 +82,19 @@ jobs:
               // Match and extract changelog item
               const itemMatch = trimmedLine.match(/^[*-]\s(.*)$/);
               if (itemMatch) {
-                // Use the raw content, exactly as the original script did
                 const originalContent = itemMatch[1]; 
-
                 const lineAsLowerCase = originalContent.toLowerCase();
+
                 const hasPrefix = prefixesToFilter.some(prefix => lineAsLowerCase.includes(prefix));
-                const hasKeyword = lineAsLowerCase.includes(requiredKeyword);
                 
-                // Include if it doesn't have a prefix OR it has the keyword
-                if (!hasPrefix || hasKeyword) {
-                  // Use the original script's output format
+                // Check if the line includes ANY of the required keywords
+                let hasAnyRequiredKeyword = false;
+                if (requiredKeywords.length > 0) {
+                  hasAnyRequiredKeyword = requiredKeywords.some(keyword => lineAsLowerCase.includes(keyword));
+                }
+                
+                // Include if it doesn't have a prefix OR it has any of the required keywords
+                if (!hasPrefix || hasAnyRequiredKeyword) {
                   newChangelog.push(`- ${currentType}: ${originalContent}`);
                 } else {
                   console.log(`Filtering out: ${originalContent}`);
@@ -118,7 +123,7 @@ jobs:
               return;
             }
 
-            // 5. Update the PR
+            // Update the PR
             await github.rest.pulls.update({
               owner: context.repo.owner,
               repo: context.repo.repo,

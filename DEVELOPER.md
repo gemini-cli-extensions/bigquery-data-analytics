@@ -109,10 +109,8 @@ The process is handled by the [`mirror-changelog.yml`](.github/workflows/mirror-
    Renovate for `toolbox` version updates.
 2. **Parsing:** It reads the detailed release notes that Renovate includes in
    the PR body.
-3. **Filtering:** A Node.js script located at
-   [`.github/scripts/mirror-changelog.js`](.github/scripts/mirror-changelog.js)
-   filters these release notes to include only changes relevant to this
-   extension. The relevance is determined by a keyword (e.g., `bigquery`), passed
+3. **Filtering:** These release notes are filtered to include only changes
+   relevant to this extension. The relevance is determined by a keyword (e.g., `bigquery`), passed
    as an environment variable in the workflow file.
 4. **Changelog Injection:** The script formats the filtered entries as
    conventional commits and injects them into the PR body within a

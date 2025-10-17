@@ -5,7 +5,13 @@
 
 Developers can effortlessly connect, interact, and generate data insights with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands.
 
-Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md).
+Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extensions/index.md).
+> [!IMPORTANT]
+> **We Want Your Feedback!**
+> Please share your thoughts with us by filling out our feedback [form][form]. 
+> Your input is invaluable and helps us improve the project for everyone.
+
+[form]: https://docs.google.com/forms/d/e/1FAIpQLSfEGmLR46iipyNTgwTmIDJqzkAwDPXxbocpXpUbHXydiN1RTw/viewform?usp=pp_url&entry.157487=bigquery-data-analytics
 
 ## Why Use the BigQuery Data Analytics Extension?
 
@@ -13,17 +19,21 @@ Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini
 * **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts to the GCP console for generating analytical insights.
 * **Run advanced analytics :** Generate forecasts, run a contributions analysis using built-in advanced tools.
 
+
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-*   [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
-*   A Google Cloud project with the **BigQuery API** enabled.
-*   IAM Permissions:
-    *   BigQuery User (`roles/bigquery.user`) (for executing queries and view
-        metadata)
+* [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
+* Setup Gemini CLI [Authentication](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#-authentication-options).
+* A Google Cloud project with the **BigQuery API** enabled.
+* Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
+* IAM Permissions:
+    * BigQuery User (`roles/bigquery.user`)
 
-## Installation
+## Getting Started
+
+### Installation
 
 To install the extension, use the command:
 
@@ -31,15 +41,23 @@ To install the extension, use the command:
 gemini extensions install https://github.com/gemini-cli-extensions/bigquery-data-analytics
 ```
 
-## Configuration
+### Configuration
 
-Set the following environment variables before starting the Gemini CLI:
+Set the following environment variables before starting the Gemini CLI. These variables can be loaded from a `.env` file.
 
-*   `BIGQUERY_PROJECT`: The GCP project ID.
-*   `BIGQUERY_LOCATION`: (Optional) The dataset location.
-*   `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Set to `true` to use client-side OAuth for authorization.
+* `BIGQUERY_PROJECT`: The GCP project ID.
+* `BIGQUERY_LOCATION`: (Optional) The dataset location.
+* `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Set to `true` to use client-side OAuth for authorization.
 
 Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
+
+### Start Gemini CLI
+
+To start the Gemini CLI, use the following command:
+
+```bash
+gemini
+```
 
 ## Usage Examples
 
@@ -70,8 +88,17 @@ This extension provides a comprehensive set of tools:
 
 ## Additional Extensions
 
-Find additional extensions to support your entire software development lifecycle at [github.com/gemini-cli-extensions](https://github.com/gemini-cli-extensions).
+Find additional extensions to support your entire software development lifecycle at [github.com/gemini-cli-extensions](https://github.com/gemini-cli-extensions), including:
+* [BigQuery Conversational Analytics](https://github.com/gemini-cli-extensions/bigquery-conversational-analytics)
+* and more!
 
 ## Troubleshooting
 
-* "cannot execute binary file": Ensure the correct binary for your OS/Architecture has been downloaded. See [Installing the server](https://googleapis.github.io/genai-toolbox/getting-started/introduction/#installing-the-server) for more information.
+Use `gemini --debug` to enable debugging.
+
+Common issues:
+
+* "failed to find default credentials: google: could not find default credentials.": Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment. See [Set up Application Default Credentials](https://cloud.google.com/docs/authentication/external/set-up-adc) for more information.
+* "✖ Error during discovery for server: MCP error -32000: Connection closed": The database connection has not been established. Ensure your configuration is set via environment variables.
+* "✖ MCP ERROR: Error: spawn /Users/USER/.gemini/extensions/bigquery-data-analytics/toolbox ENOENT": The Toolbox binary did not download correctly. Ensure you are using Gemini CLI v0.6.0+.
+* "cannot execute binary file": The Toolbox binary did not download correctly. Ensure the correct binary for your OS/Architecture has been downloaded. See [Installing the server](https://googleapis.github.io/genai-toolbox/getting-started/introduction/#installing-the-server) for more information.

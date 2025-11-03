@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.1...0.1.2) (2025-11-03)
+
+
+### Features
+
+* Support `allowedValues`, `escape`, `minValue` and `maxValue` for parameters ([genai-toolbox#​1770](https://redirect.github.com/googleapis/genai-toolbox/issues/1770)) ([eaf7740](https://redirect.github.com/googleapis/genai-toolbox/commit/eaf77406fd386c12315d67eb685dc69e0415c516)) ([f7d47f2](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/f7d47f2bd614bc391cd1d1a144bfffd13a9d8ea6))
+
 ## [0.1.1](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.0...0.1.1) (2025-09-30)
 
 

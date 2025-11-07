@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.2](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.1...0.1.2) (2025-11-07)
+
+
+### Features
+
+* **source/bigquery:** Add client cache for user-passed credentials ([genai-toolbox#​1119](https://redirect.github.com/googleapis/genai-toolbox/issues/1119)) ([cf7012a](https://redirect.github.com/googleapis/genai-toolbox/commit/cf7012a82bb5c77309da3a26e563a5015786aa69)) ([fbcd44f](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/fbcd44fc1414ab7888d574fddcc11f29141929bd))
+
+
+### Bug Fixes
+
+* Bigquery execute\_sql to assign values to array ([genai-toolbox#​1884](https://redirect.github.com/googleapis/genai-toolbox/issues/1884)) ([559e2a2](https://redirect.github.com/googleapis/genai-toolbox/commit/559e2a22e0db20bb947702e13140ce869b5865a7)) ([fbcd44f](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/fbcd44fc1414ab7888d574fddcc11f29141929bd))
+
 ## [0.1.1](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.0...0.1.1) (2025-09-30)
 
 

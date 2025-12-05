@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.2...0.1.3) (2025-12-05)
+
+
+### Bug Fixes
+
+* Format BigQuery numeric output as decimal strings ([genai-toolbox#​2084](https://redirect.github.com/googleapis/genai-toolbox/issues/2084)) ([155bff8](https://redirect.github.com/googleapis/genai-toolbox/commit/155bff80c1da4fae1e169e425fd82e1dc3373041)) ([0c77a2d](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/0c77a2d84a7f5eead1cc8224b8caef5ee0e7750c))
+
 ## [0.1.2](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.1...0.1.2) (2025-11-07)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.3...0.1.4) (2025-12-15)
+
+
+### Features
+
+* **deps:** update dependency googleapis/genai-toolbox to v0.23.0 ([#72](https://github.com/gemini-cli-extensions/bigquery-data-analytics/issues/72)) ([7135b88](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/7135b882ebbbc7b15b26a18a038662e534c54d1d))
+
 ## [0.1.3](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.2...0.1.3) (2025-12-05)
 
 

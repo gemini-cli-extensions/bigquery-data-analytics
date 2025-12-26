@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.5](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.4...0.1.5) (2025-12-26)
+
+
+### Features
+
+* Support combining prebuilt and custom tool configurations ([genai-toolbox#​2188](https://redirect.github.com/googleapis/genai-toolbox/issues/2188)) ([5788605](https://redirect.github.com/googleapis/genai-toolbox/commit/57886058188aa5d2a51d5846a98bc6d8a650edd1)) ([6271131](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/62711317c2d7b0a2d9643c8976eaf3d3a923a42c))
+
+
+### Bug Fixes
+
+* **spanner:** Move list graphs validation to runtime ([genai-toolbox#​2154](https://redirect.github.com/googleapis/genai-toolbox/issues/2154)) ([914b3ee](https://redirect.github.com/googleapis/genai-toolbox/commit/914b3eefda40a650efe552d245369e007277dab5)) ([6271131](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/62711317c2d7b0a2d9643c8976eaf3d3a923a42c))
+
 ## [0.1.4](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.3...0.1.4) (2025-12-15)
 
 

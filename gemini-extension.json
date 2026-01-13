@@ -12,5 +12,17 @@
       ]
     }
   },
-  "contextFileName": "BIGQUERY.md"
+  "contextFileName": "BIGQUERY.md",
+  "settings": [
+    {
+      "name": "Project ID",
+      "description": "ID of the Google Cloud project",
+      "envVar": "BIGQUERY_PROJECT"
+    },
+    {
+      "name": "Location",
+      "description": "(Optional) Location of the BigQuery resources",
+      "envVar": "BIGQUERY_LOCATION"
+    }
+  ]
 }

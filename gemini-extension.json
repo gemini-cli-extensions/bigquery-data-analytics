@@ -1,6 +1,6 @@
 {
   "name": "bigquery-data-analytics",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Connect, query, and generate data insights for BigQuery datasets and data.",
   "mcpServers": {
     "bigquery_data_analytics": {

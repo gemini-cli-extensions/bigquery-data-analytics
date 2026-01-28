@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.7](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.6...0.1.7) (2026-01-28)
+
+
+### Features
+
+* add Configuration settings ([#82](https://github.com/gemini-cli-extensions/bigquery-data-analytics/issues/82)) ([ba8aba6](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/ba8aba6df97d87b0bd9d9468e02e6db656c76592))
+* **deps:** update dependency googleapis/genai-toolbox to v0.26.0 ([#84](https://github.com/gemini-cli-extensions/bigquery-data-analytics/issues/84)) ([1ccf9f1](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/1ccf9f159c2bf8db63eebc3e9b6462bc6d607535))
+
 ## [0.1.6](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.5...0.1.6) (2026-01-13)
 
 

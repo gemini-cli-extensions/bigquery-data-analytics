@@ -43,14 +43,33 @@ gemini extensions install https://github.com/gemini-cli-extensions/bigquery-data
 
 ### Configuration
 
-Set the following environment variables before starting the Gemini CLI. These variables can be loaded from a `.env` file.
+You will be prompted to configure the following settings during installation. These settings are saved in an `.env` file within the extension's directory.
+
+*   `BIGQUERY_PROJECT`: The GCP project ID.
+*   `BIGQUERY_LOCATION`: (Optional) The dataset location.
+
+To view or update your configuration:
+
+**List Settings:**
+*   Terminal: `gemini extensions list`
+*   Gemini CLI: `/extensions list`
+
+**Update Settings:**
+*   Terminal: `gemini extensions config bigquery-data-analytics [setting name] [--scope <scope>]`
+    *   `setting name`: (Optional) The single setting to configure.
+    *   `scope`: (Optional) The scope of the setting in (`user` or `workspace`). Defaults to `user`.
+*   Currently, you must restart the Gemini CLI for changes to take effect. We recommend using `gemini --resume` to resume your session.
+
+Alternatively, you can manually set these environment variables before starting the Gemini CLI:
 
 ```bash
 export BIGQUERY_PROJECT="<your-gcp-project-id>"
 export BIGQUERY_LOCATION="<your-dataset-location>"  # Optional
 ```
 
-Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
+> [!NOTE]
+> * Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
+> * See [Troubleshooting](#troubleshooting) for debugging your configuration.
 
 ### Start Gemini CLI
 

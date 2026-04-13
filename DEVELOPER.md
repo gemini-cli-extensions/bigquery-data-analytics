@@ -60,7 +60,7 @@ be successfully installed by the Gemini CLI.
 
 Currently, there are no automated unit or integration test suites
 within this repository. All functional testing must be performed manually. All tools
-are currently tested in the [MCP Toolbox GitHub](https://github.com/googleapis/genai-toolbox).
+are currently tested in the [MCP Toolbox GitHub](https://github.com/googleapis/mcp-toolbox).
 
 ### Other GitHub Checks
 
@@ -100,7 +100,7 @@ The release process is automated using `release-please`. It consists of an autom
 
 #### Automated Changelog Enrichment
 
-Before a Release PR is even created, a special workflow automatically mirrors relevant changelogs from the core `googleapis/genai-toolbox` dependency. This ensures that the release notes for this extension accurately reflect important upstream changes.
+Before a Release PR is even created, a special workflow automatically mirrors relevant changelogs from the core `googleapis/mcp-toolbox` dependency. This ensures that the release notes for this extension accurately reflect important upstream changes.
 
 The process is handled by the [`mirror-changelog.yml`](.github/workflows/mirror-changelog.yml) workflow:
 

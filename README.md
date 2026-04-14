@@ -5,8 +5,6 @@
 
 Developers can effortlessly connect, interact, and generate data insights with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands.
 
-[Learn more about Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extensions/index.md).
-
 > [!IMPORTANT]
 > **We Want Your Feedback!**
 > Please share your thoughts with us by filling out our feedback [form][form]. 

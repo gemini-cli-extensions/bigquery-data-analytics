@@ -12,10 +12,6 @@ This section covers connecting to BigQuery.
 
  * `BIGQUERY_PROJECT`: The GCP project ID.
  * `BIGQUERY_LOCATION`: (Optional) Location of the BigQuery resources.
- * `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Whether to use client OAuth (default: false).
- * `BIGQUERY_SCOPES`: (Optional) Scopes for the BigQuery client.
- * `BIGQUERY_MAX_QUERY_RESULT_ROWS`: (Optional) Maximum number of query result rows (default: 50).
- * `BIGQUERY_IMPERSONATE_SERVICE_ACCOUNT`: (Optional) Service account to impersonate.
 
  If you need to update any of these values later, use the `gemini extensions config bigquery-data-analytics` command.
 

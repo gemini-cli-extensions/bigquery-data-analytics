@@ -28,6 +28,7 @@
       "release-type": "simple",
       "package-name": "bigquery-data-analytics",
       "extra-files": [
+        "README.md",
         {
           "type": "json",
           "path": "gemini-extension.json",

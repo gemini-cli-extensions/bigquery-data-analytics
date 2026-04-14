@@ -17,7 +17,7 @@ Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini
 
 * **Natural Language to data analytics :** Find required BigQuery tables and ask analytical questions in natural language.
 * **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts to the GCP console for generating analytical insights.
-* **Run advanced analytics :** Generate forecasts, run a contributions analysis using built-in advanced tools.
+* **Run advanced analytics :** Generate forecasts, run a contributions analysis using built-in advanced skills.
 
 
 ## Prerequisites
@@ -93,18 +93,12 @@ Interact with BigQuery using natural language right from your IDE:
   * "Using bigquery-public-data.pypi.file\_downloads show me the top 10 downloaded pypi packages this month."
   * “Using bigquery-public-data.pypi.file\_downloads can you forecast downloads for the last four months of 2025 for package urllib3?”
 
-## Supported Tools
+## Supported Skills
 
-This extension provides a comprehensive set of tools:
+This extension provides a comprehensive set of skills:
 
-* `execute_sql`: Executes a SQL query.
-* `forecast`: Forecast time series data.
-* `get_dataset_info`: Get dataset metadata.
-* `get_table_info`: Get table metadata.
-* `list_dataset_ids`: Lists dataset ids in the database.
-* `list_table_ids`: Lists table ids in the database.
-* `analyze_contribution`: Perform contribution analysis, also called key driver analysis.
-* `search_catalog`: Search for tables based on the provided query.
+* `bigquery-data`: Use these skills when you need to handle large-scale data exploration and dataset management. Use when users need to find data assets or run SQL at scale. Provides metadata discovery and query execution across the data warehouse.
+* `bigquery-analytics`: Use these skills when you need to handle advanced data intelligence and predictive tasks. Use when a user asks "why" data changed or needs future projections. Provides automated insight generation and time-series forecasting.
 
 ## Additional Extensions
 

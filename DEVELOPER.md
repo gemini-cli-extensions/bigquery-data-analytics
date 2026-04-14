@@ -16,7 +16,7 @@ Before you begin, ensure you have the following:
 
 ### Running from Local Source
 
-The core logic for this extension is handled by a pre-built `toolbox` binary. The development process involves installing the extension locally into the Gemini CLI to test changes.
+The development process involves installing the extension locally into the Gemini CLI to test changes.
 
 1.  **Clone the Repository:**
 
@@ -25,29 +25,16 @@ The core logic for this extension is handled by a pre-built `toolbox` binary. Th
     cd bigquery-data-analytics
     ```
 
-2.  **Download the Toolbox Binary:** The required version of the `toolbox` binary
-    is specified in `toolbox_version.txt`. Download it for your platform.
-
-    ```bash
-    # Read the required version
-    VERSION=$(cat toolbox_version.txt)
-
-    # Example for macOS/amd64
-    curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/geminicli/v$VERSION/darwin/amd64/toolbox
-    chmod +x toolbox
-    ```
-    Adjust the URL for your operating system (`linux/amd64`, `darwin/arm64`, `windows/amd64`).
-
-3.  **Link the Extension Locally:** Use the Gemini CLI to install the
+2.  **Install the Extension Locally:** Use the Gemini CLI to install the
     extension from your local directory.
 
     ```bash
-    gemini extensions link .
+    gemini extensions install .
     ```
-    The CLI will prompt you to confirm the linking. Accept it to proceed.
+    The CLI will prompt you to confirm the installation. Accept it to proceed.
 
-4.  **Testing Changes:** After linking, start the Gemini CLI (`gemini`).
-    You can now interact with the `bigquery-data-analytics` tools to manually test your changes
+3.  **Testing Changes:** After installing, start the Gemini CLI (`gemini`).
+    You can now interact with the `bigquery-data-analytics` skills to manually test your changes
     against your connected database.
 
 ## Testing
@@ -76,13 +63,8 @@ are currently tested in the [MCP Toolbox GitHub](https://github.com/googleapis/m
 ## Building the Extension
 
 The "build" process for this extension involves packaging the extension's
-metadata files (`gemini-extension.json`, `bigquery-data-analytics.md`, `LICENSE`) along with the
-pre-built `toolbox` binary into platform-specific archives (`.tar.gz` or `.zip`).
-
-This process is handled automatically by the
-[`package-and-upload-assets.yml`](.github/workflows/package-and-upload-assets.yml)
-GitHub Actions workflow when a new release is created. Manual building is not
-required.
+metadata files (`gemini-extension.json`, `BIGQUERY.md`, `LICENSE`) along with the
+skills.
 
 ## Maintainer Information
 
@@ -135,7 +117,3 @@ The process is handled by the [`mirror-changelog.yml`](.github/workflows/mirror-
 2.  **Merge Release PR:** A maintainer approves and merges the Release PR. This
     action triggers `release-please` to create a new GitHub tag and a
     corresponding GitHub Release.
-3.  **Package and Upload:** The new release triggers the
-    `package-and-upload-assets.yml` workflow. This workflow builds the
-    platform-specific extension archives and uploads them as assets to the
-    GitHub Release.

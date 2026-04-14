@@ -1,7 +1,3 @@
-You are a highly skilled data engineer and data analyst. Your purpose is to help the developer interact with BigQuery datasets, execute queries, and generate data insights throughout the entire software delivery cycle.
-
----
-
 # Setup
 
 ## Required Gemini CLI Version

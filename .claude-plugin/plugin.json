@@ -22,30 +22,6 @@
       "description": "(Optional) Location of the BigQuery resources",
       "type": "string",
       "sensitive": false
-    },
-    "bigquery_use_client_oauth": {
-      "title": "Use Client OAuth",
-      "description": "(Optional) Whether to use client OAuth (default: false)",
-      "type": "string",
-      "sensitive": false
-    },
-    "bigquery_scopes": {
-      "title": "Scopes",
-      "description": "(Optional) Scopes for the BigQuery client",
-      "type": "string",
-      "sensitive": false
-    },
-    "bigquery_max_query_result_rows": {
-      "title": "Max Query Result Rows",
-      "description": "(Optional) Maximum number of query result rows (default: 50)",
-      "type": "string",
-      "sensitive": false
-    },
-    "bigquery_impersonate_service_account": {
-      "title": "Impersonate Service Account",
-      "description": "(Optional) Service account to impersonate",
-      "type": "string",
-      "sensitive": false
     }
   }
 }

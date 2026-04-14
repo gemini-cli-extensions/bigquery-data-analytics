@@ -47,6 +47,10 @@ You will be prompted to configure the following settings during installation. Th
 
 *   `BIGQUERY_PROJECT`: The GCP project ID.
 *   `BIGQUERY_LOCATION`: (Optional) The dataset location.
+*   `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Whether to use client OAuth (default: false).
+*   `BIGQUERY_SCOPES`: (Optional) Scopes for the BigQuery client.
+*   `BIGQUERY_MAX_QUERY_RESULT_ROWS`: (Optional) Maximum number of query result rows (default: 50).
+*   `BIGQUERY_IMPERSONATE_SERVICE_ACCOUNT`: (Optional) Service account to impersonate.
 
 To view or update your configuration:
 
@@ -65,6 +69,10 @@ Alternatively, you can manually set these environment variables before starting 
 ```bash
 export BIGQUERY_PROJECT="<your-gcp-project-id>"
 export BIGQUERY_LOCATION="<your-dataset-location>"  # Optional
+export BIGQUERY_USE_CLIENT_OAUTH="false"             # Optional
+export BIGQUERY_SCOPES=""                           # Optional
+export BIGQUERY_MAX_QUERY_RESULT_ROWS="50"           # Optional
+export BIGQUERY_IMPERSONATE_SERVICE_ACCOUNT=""       # Optional
 ```
 
 > [!NOTE]

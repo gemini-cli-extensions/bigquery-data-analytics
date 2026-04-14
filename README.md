@@ -12,7 +12,7 @@ Developers can effortlessly connect, interact, and generate data insights with [
 
 [form]: https://docs.google.com/forms/d/e/1FAIpQLSfEGmLR46iipyNTgwTmIDJqzkAwDPXxbocpXpUbHXydiN1RTw/viewform?usp=pp_url&entry.157487=bigquery-data-analytics
 
----
+## Table of Contents
 
 - [Why Use the BigQuery Data Analytics Extension?](#why-use-the-bigquery-data-analytics-extension)
 - [Prerequisites](#prerequisites)
@@ -26,7 +26,6 @@ Developers can effortlessly connect, interact, and generate data insights with [
 - [Additional Extensions](#additional-extensions)
 - [Troubleshooting](#troubleshooting)
 
----
 
 ## Why Use the BigQuery Data Analytics Extension?
 

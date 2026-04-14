@@ -38,12 +38,15 @@ Developers can effortlessly connect, interact, and generate data insights with [
 
 Before you begin, ensure you have the following:
 
-* [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
-* Setup Gemini CLI [Authentication](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#-authentication-options).
-* A Google Cloud project with the **BigQuery API** enabled.
-* Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
-* IAM Permissions:
-    * BigQuery User (`roles/bigquery.user`)
+- One of these AI agents installed
+  - [Gemini CLI](https://github.com/google-gemini/gemini-cli) version **v0.6.0** or higher
+  - [Claude Code](https://claude.com/product/claude-code) version **v2.1.94** or higher
+  - [Codex](https://developers.openai.com/codex) **v0.117.0** or higher
+  - [Antigravity](https://antigravity.google) **v1.14.2** or higher
+- A Google Cloud project with the **BigQuery API** enabled.
+- Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
+- IAM Permissions:
+    - BigQuery User (`roles/bigquery.user`)
 
 ## Getting Started
 

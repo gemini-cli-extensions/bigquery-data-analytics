@@ -1,7 +1,7 @@
-# Gemini CLI Extension - BigQuery Data Analytics
+# BigQuery Data Analytics Skills
 
 > [!NOTE]
-> This extension is currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
+> Currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
 
 Developers can effortlessly connect, interact, and generate data insights with [BigQuery](https://cloud.google.com/bigquery/docs) datasets and data using natural language commands.
 
@@ -50,18 +50,9 @@ Before you begin, ensure you have the following:
 
 ## Getting Started
 
-<details>
-<summary><b>Gemini CLI</b></summary>
+### Configuration
 
-To install the extension for Gemini CLI, use the command:
-
-```bash
-gemini extensions install https://github.com/gemini-cli-extensions/bigquery-data-analytics
-```
-
-#### Configuration
-
-You will be prompted to configure the following settings during installation. These settings are saved in an `.env` file within the extension's directory.
+Please keep these env vars handy during the installation process:
 
 *   `BIGQUERY_PROJECT`: The GCP project ID.
 *   `BIGQUERY_LOCATION`: (Optional) The dataset location.
@@ -70,76 +61,159 @@ You will be prompted to configure the following settings during installation. Th
 *   `BIGQUERY_MAX_QUERY_RESULT_ROWS`: (Optional) Maximum number of query result rows (default: 50).
 *   `BIGQUERY_IMPERSONATE_SERVICE_ACCOUNT`: (Optional) Service account to impersonate.
 
-To view or update your configuration:
+> [!NOTE]
+>
+> - Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
 
-**List Settings:**
-*   Terminal: `gemini extensions list`
-*   Gemini CLI: `/extensions list`
+### Installation & Usage
 
-**Update Settings:**
-*   Terminal: `gemini extensions config bigquery-data-analytics [setting name] [--scope <scope>]`
-    *   `setting name`: (Optional) The single setting to configure.
-    *   `scope`: (Optional) The scope of the setting in (`user` or `workspace`). Defaults to `user`.
+To start interacting with your database, install the skills for your preferred AI agent, then launch the agent and use natural language to ask questions or perform tasks.
 
-Alternatively, you can manually set these environment variables before starting the Gemini CLI:
+For the latest version, check the [releases page][releases].
+
+[releases]: https://github.com/gemini-cli-extensions/bigquery-data-analytics/releases
+
+<!-- {x-release-please-start-version} -->
+
+<details open>
+<summary id="gemini-cli">Gemini CLI</summary>
+
+**1. Install the extension:**
 
 ```bash
-export BIGQUERY_PROJECT="<your-gcp-project-id>"
-export BIGQUERY_LOCATION="<your-dataset-location>"  # Optional
-export BIGQUERY_USE_CLIENT_OAUTH="false"             # Optional
-export BIGQUERY_SCOPES=""                           # Optional
-export BIGQUERY_MAX_QUERY_RESULT_ROWS="50"           # Optional
-export BIGQUERY_IMPERSONATE_SERVICE_ACCOUNT=""       # Optional
+gemini extensions install https://github.com/gemini-cli-extensions/bigquery-data-analytics
 ```
 
-#### Start Gemini CLI
+During the installation, enter your environment vars as described in the [configuration section](#configuration).
 
-To start the Gemini CLI, use the following command:
+**2. (Optional) Manage Configuration:**
+To view or update your configuration in Gemini CLI:
+
+- Terminal: `gemini extensions config bigquery-data-analytics [setting name] [--scope <scope>]`
+- Gemini CLI: `/extensions list`
+
+**3. Start the agent:**
 
 ```bash
 gemini
 ```
 
-</details>
+_(Tip: Run `/extensions list` to verify your configuration and active extensions.)_
 
-<details>
-<summary><b>Claude Code</b></summary>
-
-To use these skills with [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code):
-
-1.  Navigate to your project directory.
-2.  Add the plugin:
-    ```bash
-    claude mcp add bigquery-data-analytics https://github.com/gemini-cli-extensions/bigquery-data-analytics
-    ```
-3.  Claude will prompt you for the required configuration values.
+> [!WARNING]
+> **Changing Instance & Database Connections**
+> Currently, the database connection must be configured before starting the agent and can not be changed during a session.
+> To save and resume conversation history in Gemini CLI use command: `/chat save <tag>` and `/chat resume <tag>`.
 
 </details>
 
 <details>
-<summary><b>Codex</b></summary>
+<summary id="claude-code">Claude Code</summary>
 
-To use these skills with [Codex](https://github.com/google-gemini/codex):
+**1. Set env vars:**
+In your terminal, set your environment vars as described in the [configuration section](#configuration).
 
-1.  Open the Codex interface.
-2.  Navigate to the **Extensions** or **Plugins** section.
-3.  Search for `bigquery-data-analytics` or provide the repository URL: `https://github.com/gemini-cli-extensions/bigquery-data-analytics`.
-4.  Follow the on-screen instructions to install and configure.
+**2. Start the agent:**
+
+```bash
+claude
+```
+
+**3. Add the marketplace:**
+
+```bash
+/plugin marketplace add https://github.com/gemini-cli-extensions/bigquery-data-analytics.git#0.1.7
+```
+
+**4. Install the plugin:**
+
+```bash
+/plugin install bigquery-data-analytics@bigquery-data-analytics-marketplace
+```
+
+_(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or `/reload-plugins` if you just installed it.)_
 
 </details>
 
 <details>
-<summary><b>Antigravity</b></summary>
+<summary id="codex">Codex</summary>
 
-To use these skills with [Antigravity](https://github.com/google-gemini/antigravity):
+**1. Clone the Repo:**
 
-1.  Install the skills using the Antigravity CLI:
-    ```bash
-    antigravity skills install https://github.com/gemini-cli-extensions/bigquery-data-analytics
-    ```
-2.  Configure the environment variables as prompted or in your `.env` file.
+```bash
+git clone --branch 0.1.7 git@github.com:gemini-cli-extensions/bigquery-data-analytics.git
+```
+
+**2. Install the plugin:**
+
+```bash
+mkdir -p ~/.codex/plugins
+cp -R /absolute/path/to/bigquery-data-analytics ~/.codex/plugins/bigquery-data-analytics
+```
+
+**3. Set env vars:**
+Enter your environment vars as described in the [configuration section](#configuration).
+
+**4. Create or update marketplace.json:**
+`~/.agents/plugins/marketplace.json`
+
+```json
+{
+  "name": "my-data-cloud-google-marketplace",
+  "interface": {
+    "displayName": "Google Data Cloud Skills"
+  },
+  "plugins": [
+    {
+      "name": "bigquery-data-analytics",
+      "source": {
+        "source": "local",
+        "path": "./plugins/bigquery-data-analytics"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Database"
+    }
+  ]
+}
+```
+
+_(Tip: Run `codex plugin list` or use the `/plugins` interactive menu to verify your installed plugins.)_
 
 </details>
+
+<details>
+<summary id="antigravity">Antigravity</summary>
+
+**1. Clone the Repo:**
+
+```bash
+git clone --branch 0.1.7 https://github.com/gemini-cli-extensions/bigquery-data-analytics.git
+```
+
+**2. Install the skills:**
+
+Choose a location for the skills:
+- **Global (all workspaces):** `~/.gemini/antigravity/skills/`
+- **Workspace-specific:** `<workspace-root>/.agents/skills/`
+
+Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
+
+```bash
+cp -R bigquery-data-analytics/skills/* ~/.gemini/antigravity/skills/
+```
+
+**3. Set env vars:**
+Set your environment vars as described in the [configuration section](#configuration).
+
+_(Tip: Antigravity automatically discovers skills in these directories at the start of a session.)_
+
+</details>
+
+<!-- {x-release-please-end} -->
+
 
 > [!NOTE]
 > * Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.

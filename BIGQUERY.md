@@ -23,26 +23,3 @@ This section covers connecting to BigQuery.
  * If an operation fails due to permissions, identify the type of operation and recommend the appropriate role. You can provide these links for assistance:
  * Granting Roles: https://cloud.google.com/iam/docs/grant-role-console
  * BigQuery Permissions: https://cloud.google.com/iam/docs/roles-permissions/bigquery
-
----
-
-# Usage Guidelines
-
-## Reusing Project Values
-
-Users may have set project environment variables:
-
-* `BIGQUERY_PROJECT`: The GCP project ID.
-* `BIGQUERY_LOCATION`: (Optional) Location of the BigQuery resources.
-* `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Whether to use client OAuth (default: false).
-* `BIGQUERY_SCOPES`: (Optional) Scopes for the BigQuery client.
-* `BIGQUERY_MAX_QUERY_RESULT_ROWS`: (Optional) Maximum number of query result rows (default: 50).
-* `BIGQUERY_IMPERSONATE_SERVICE_ACCOUNT`: (Optional) Service account to impersonate.
-
-Instead of prompting the user for these values for specific skill calls, prompt the user to verify the reuse of a specific setting value.
-Make sure to not use the environment variable name like `BIGQUERY_PROJECT`, `${BIGQUERY_PROJECT}`, or `$BIGQUERY_PROJECT`. 
-The value can be verified by the user using the `gemini extensions config bigquery-data-analytics` command or by checking their local settings.
-
-## Use Full Table Name Format "PROJECT.DATASET.TABLE"
-
-**ALWAYS** use the full table name format, `PROJECT.DATASET.TABLE` in the generated SQL when executing the `execute_sql` script.

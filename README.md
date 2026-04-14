@@ -56,10 +56,7 @@ Please keep these env vars handy during the installation process:
 
 *   `BIGQUERY_PROJECT`: The GCP project ID.
 *   `BIGQUERY_LOCATION`: (Optional) The dataset location.
-*   `BIGQUERY_USE_CLIENT_OAUTH`: (Optional) Whether to use client OAuth (default: false).
-*   `BIGQUERY_SCOPES`: (Optional) Scopes for the BigQuery client.
-*   `BIGQUERY_MAX_QUERY_RESULT_ROWS`: (Optional) Maximum number of query result rows (default: 50).
-*   `BIGQUERY_IMPERSONATE_SERVICE_ACCOUNT`: (Optional) Service account to impersonate.
+
 
 > [!NOTE]
 >

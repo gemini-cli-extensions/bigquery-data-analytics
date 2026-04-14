@@ -73,16 +73,6 @@ are currently tested in the [MCP Toolbox GitHub](https://github.com/googleapis/m
 *   **Dependency Updates:** [Renovate](https://github.com/apps/forking-renovate)
     is configured to automatically create pull requests for dependency updates.
 
-## Building the Extension
-
-The "build" process for this extension involves packaging the extension's
-metadata files (`gemini-extension.json`, `bigquery-data-analytics.md`, `LICENSE`) along with the
-pre-built `toolbox` binary into platform-specific archives (`.tar.gz` or `.zip`).
-
-This process is handled automatically by the
-[`package-and-upload-assets.yml`](.github/workflows/package-and-upload-assets.yml)
-GitHub Actions workflow when a new release is created. Manual building is not
-required.
 
 ## Maintainer Information
 

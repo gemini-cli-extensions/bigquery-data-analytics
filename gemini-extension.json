@@ -13,6 +13,26 @@
       "name": "Location",
       "description": "(Optional) Location of the BigQuery resources",
       "envVar": "BIGQUERY_LOCATION"
+    },
+    {
+      "name": "Use Client OAuth",
+      "description": "(Optional) Whether to use client OAuth (default: false)",
+      "envVar": "BIGQUERY_USE_CLIENT_OAUTH"
+    },
+    {
+      "name": "Scopes",
+      "description": "(Optional) Scopes for the BigQuery client",
+      "envVar": "BIGQUERY_SCOPES"
+    },
+    {
+      "name": "Max Query Result Rows",
+      "description": "(Optional) Maximum number of query result rows (default: 50)",
+      "envVar": "BIGQUERY_MAX_QUERY_RESULT_ROWS"
+    },
+    {
+      "name": "Impersonate Service Account",
+      "description": "(Optional) Service account to impersonate",
+      "envVar": "BIGQUERY_IMPERSONATE_SERVICE_ACCOUNT"
     }
   ]
 }

@@ -46,7 +46,7 @@ for every pull request. This workflow primarily verifies that the extension can
 be successfully installed by the Gemini CLI.
 
 Currently, there are no automated unit or integration test suites
-within this repository. All functional testing must be performed manually. All tools
+within this repository. All functional testing must be performed manually. All skills
 are currently tested in the [MCP Toolbox GitHub](https://github.com/googleapis/mcp-toolbox).
 
 ### Other GitHub Checks
@@ -62,9 +62,8 @@ are currently tested in the [MCP Toolbox GitHub](https://github.com/googleapis/m
 
 ## Building the Extension
 
-The "build" process for this extension involves packaging the extension's
-metadata files (`gemini-extension.json`, `BIGQUERY.md`, `LICENSE`) along with the
-skills.
+The building process for this extension is handled automatically by the
+automated workflows when a new release is created. Manual building is not required.
 
 ## Maintainer Information
 

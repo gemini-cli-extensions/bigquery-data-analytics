@@ -2,16 +2,6 @@
   "name": "bigquery-data-analytics",
   "version": "0.1.7",
   "description": "Connect, query, and generate data insights for BigQuery datasets and data.",
-  "mcpServers": {
-    "bigquery_data_analytics": {
-      "command": "${extensionPath}${/}toolbox",
-      "args": [
-        "--tools-file",
-        "${extensionPath}${/}tools.yaml",
-        "--stdio"
-      ]
-    }
-  },
   "contextFileName": "BIGQUERY.md",
   "settings": [
     {

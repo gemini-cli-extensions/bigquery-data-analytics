@@ -1,0 +1,16 @@
+{
+  "name": "bigquery-data-analytics-marketplace",
+  "owner": {
+    "name": "Google LLC",
+    "email": "data-cloud-ai-integrations@google.com"
+  },
+  "metadata": {
+    "description": "Agent skills for BigQuery to connect, query, and generate data insights."
+  },
+  "plugins": [
+    {
+      "name": "bigquery-data-analytics",
+      "source": "./"
+    }
+  ]
+}

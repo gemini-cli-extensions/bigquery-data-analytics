@@ -47,6 +47,11 @@ Before you begin, ensure you have the following:
 - Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
 - IAM Permissions:
     - BigQuery User (`roles/bigquery.user`)
+- (Optional) To use BigQuery AI/ML skills
+  - Ensure that Vertex AI API is enabled
+  - IAM permissions:
+    - BigQuery Connection User (`roles/bigquery.connectionUser`)
+    - Vertex AI User (`roles/aiplatform.user`)
 
 ## Getting Started
 

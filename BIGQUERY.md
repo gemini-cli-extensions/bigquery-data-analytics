@@ -23,3 +23,15 @@ This section covers connecting to BigQuery.
  * If an operation fails due to permissions, identify the type of operation and recommend the appropriate role. You can provide these links for assistance:
  * Granting Roles: https://cloud.google.com/iam/docs/grant-role-console
  * BigQuery Permissions: https://cloud.google.com/iam/docs/roles-permissions/bigquery
+
+### 2. BigQuery AI/ML Skills
+These skills leverage BigQuery's built-in AI functions (`AI.*`) for tasks like text generation, classification, and semantic search.
+
+**Important**: Standard SQL-based `AI.*` functions (executed via `execute_sql()`) are preferred over dedicated BigQuery tools for tasks like Forecasting and Anomaly Detection.
+
+1. **Prerequisites**:
+ * Ensure your BigQuery project has the **Vertex AI API** enabled.
+ * A [Cloud Resource Connection](https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection) must be established in BigQuery to use `AI.*` functions.
+
+2. **Handle Permission Errors**:
+ * The service account associated with the BigQuery connection requires the **Vertex AI User** (`roles/aiplatform.user`) and the **BigQuery Connection User** (`roles/bigquery.connectionUser`) role.

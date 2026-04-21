@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.2.0...0.2.1) (2026-04-21)
+
+
+### Features
+
+* add bigquery ai-ml skills ([#119](https://github.com/gemini-cli-extensions/bigquery-data-analytics/issues/119)) ([586ea7e](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/586ea7efdf43732c5a397591755b95fa05a3341f))
+
 ## [0.2.0](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.1.7...0.2.0) (2026-04-16)
 
 

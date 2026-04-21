@@ -1,6 +1,6 @@
 {
   "name": "bigquery-data-analytics",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Connect, query, and generate data insights for BigQuery datasets and data.",
   "author": {
     "name": "Google LLC",

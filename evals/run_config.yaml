@@ -34,4 +34,4 @@ scorers:
 
 reporting:
   bigquery:
-    gcp_project_id: ext-test-bigquery-analytics
+    gcp_project_id: cloud-db-nl2sql

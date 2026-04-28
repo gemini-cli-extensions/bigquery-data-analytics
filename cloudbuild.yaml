@@ -1,0 +1,87 @@
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+steps:
+
+  # --- Evaluation Step ---
+  - name: 'us-central1-docker.pkg.dev/cloud-db-nl2sql/evalbench/eval_server:latest'
+    entrypoint: 'bash'
+    # Decrypts the secret from Secret Manager into the GITHUB_TOKEN environment variable
+    secretEnv: ['GITHUB_TOKEN']
+    args:
+      - '-c'
+      - |
+        set -e
+
+        # Only run on release branches
+        if [[ "$_HEAD_BRANCH" != release-please-* ]]; then
+          echo "Not a release-please branch. Exiting."
+          exit 0
+        fi
+        echo "Release branch detected. Fetching PR data from GitHub API..."
+
+        # Fetch PR data and status code
+        HTTP_STATUS=$(curl -s -o pr_data.json -w "%{http_code}" -H "Authorization: token $$GITHUB_TOKEN" \
+          "https://api.github.com/repos/$REPO_FULL_NAME/pulls/$_PR_NUMBER")
+
+        if [ "$$HTTP_STATUS" -ne 200 ]; then
+          echo "Error fetching PR data: HTTP $$HTTP_STATUS"
+          cat pr_data.json
+          exit 1
+        fi
+
+        PR_DATA=$(cat pr_data.json)
+
+        # Extract labels and title from PR data (Use $$ to escape bash variables)
+        PR_LABELS=$(echo "$$PR_DATA" | jq -r '[.labels[].name] | join(",")')
+        PR_TITLE=$(echo "$$PR_DATA" | jq -r '.title')
+
+        # Determine Release Version (Use double quotes and $$ for bash variables)
+        if [[ "$$PR_LABELS" == *"autorelease: triggered"* ]]; then
+          if [[ "$$PR_TITLE" =~ release\ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
+            export RELEASE_VERSION="$${BASH_REMATCH[1]}"
+          else
+            export RELEASE_VERSION="unknown"
+          fi
+        else
+          export RELEASE_VERSION="unknown"
+        fi
+
+        # Workaround for evalbench bug: settings are only applied if path basename matches extension ID
+        ln -s /workspace /workspace/bigquery-data-analytics
+        cd /evalbench
+
+        export EVAL_GCP_PROJECT_ID=$PROJECT_ID
+        export GOOGLE_CLOUD_PROJECT=$PROJECT_ID
+
+        # Combine CI metadata with run config
+        cat /workspace/evals/ci_metadata.yaml >> /workspace/evals/run_config.yaml
+
+        # Substitute environment variables in model_config.yaml
+        python3 /workspace/evals/substitute_env.py
+
+        cd /evalbench
+        export PYTHONPATH=./evalbench:./evalbench/evalproto
+        export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
+
+        echo "Launching Standalone Evaluation..."
+        python3 evalbench/evalbench.py --experiment_config=/workspace/evals/run_config.yaml
+
+availableSecrets:
+  secretManager:
+  - versionName: projects/$PROJECT_ID/secrets/GITHUB_TOKEN/versions/latest
+    env: 'GITHUB_TOKEN'

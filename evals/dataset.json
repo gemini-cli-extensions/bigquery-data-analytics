@@ -1,0 +1,30 @@
+{
+  "scenarios": [
+    {
+      "id": "bq-search-catalog",
+      "starting_prompt": "Search for tables related to sales in project ext-test-bigquery-analytics.",
+      "conversation_plan": "Ask the agent to search for tables with 'sales' in the prompt.",
+      "expected_trajectory": [
+        "search_catalog"
+      ],
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "ext-test-bigquery-analytics"
+      },
+      "kind": "tools",
+      "max_turns": 3
+    },
+    {
+      "id": "bq-ask-insights",
+      "starting_prompt": "What are the top products by sales in the table 'sales_data' in dataset 'sales' and project 'ext-test-bigquery-analytics'?",
+      "conversation_plan": "Ask the agent to get insights about the sales table.",
+      "expected_trajectory": [
+        "ask_data_insights"
+      ],
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "ext-test-bigquery-analytics"
+      },
+      "kind": "tools",
+      "max_turns": 3
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+dataset_config: /workspace/evals/dataset.json
+dataset_format: gemini-cli-format
+
+orchestrator: geminicli
+model_config: /workspace/evals/model_config.yaml
+simulated_user_model_config: /workspace/evals/gemini_2.5_pro_model.yaml
+
+scorers:
+  # Qualitative (Judge-based)
+  goal_completion:
+    model_config: /workspace/evals/gemini_2.5_pro_model.yaml
+  behavioral_metrics:
+    model_config: /workspace/evals/gemini_2.5_pro_model.yaml
+
+  # Performance
+  turn_count: {}
+  end_to_end_latency: {}
+  tool_call_latency: {}
+  token_consumption: {}
+
+reporting:
+  bigquery:
+    gcp_project_id: ext-test-bigquery-analytics

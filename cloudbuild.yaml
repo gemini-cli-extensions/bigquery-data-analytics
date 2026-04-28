@@ -67,6 +67,7 @@ steps:
 
         export EVAL_GCP_PROJECT_ID=$PROJECT_ID
         export GOOGLE_CLOUD_PROJECT=$PROJECT_ID
+        export EVAL_GCP_PROJECT_REGION=$_EVAL_REGION
 
         # Combine CI metadata with run config
         cat /workspace/evals/ci_metadata.yaml >> /workspace/evals/run_config.yaml

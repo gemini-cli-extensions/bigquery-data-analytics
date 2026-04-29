@@ -51,7 +51,7 @@ steps:
         PR_TITLE=$(echo "$$PR_DATA" | jq -r '.title')
 
         # Determine Release Version (Use double quotes and $$ for bash variables)
-        if [[ "$$PR_LABELS" == *"autorelease: triggered"* ]]; then
+        if [[ "$$PR_LABELS" == *"autorelease: pending"* ]]; then
           if [[ "$$PR_TITLE" =~ release\ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
             export RELEASE_VERSION="$${BASH_REMATCH[1]}"
           else

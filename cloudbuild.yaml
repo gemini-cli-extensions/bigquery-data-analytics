@@ -41,12 +41,11 @@ steps:
 
         PR_DATA=$(cat pr_data.json)
 
-        # Extract labels and title from PR data (Use $$ to escape bash variables)
-        PR_LABELS=$(echo "$$PR_DATA" | jq -r '[.labels[].name] | join(",")')
+        # Extract title from PR data (Use $$ to escape bash variables)
         PR_TITLE=$(echo "$$PR_DATA" | jq -r '.title')
 
-        # Check if execution labels are present
-        if [[ "$$PR_LABELS" != *"autorelease: pending"* && "$$PR_LABELS" != *"ci:run-evals"* ]]; then
+        # Check if execution labels are present using exact matching via jq
+        if ! echo "$$PR_DATA" | jq -e '.labels | any(.name == "autorelease: pending" or .name == "ci:run-evals")' > /dev/null; then
           echo "PR does not have 'autorelease: pending' or 'ci:run-evals' label. Skipping execution."
           exit 0
         fi

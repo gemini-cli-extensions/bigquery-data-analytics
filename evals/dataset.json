@@ -2,28 +2,28 @@
   "scenarios": [
     {
       "id": "bq-search-and-insight",
-      "starting_prompt": "Find tables related to sales in project ext-test-bigquery-analytics.",
+      "starting_prompt": "Find tables related to sales in project ${GOOGLE_CLOUD_PROJECT}.",
       "conversation_plan": "First, ask the agent to find tables related to sales. Once it lists the tables (which should include 'sales_data' in 'evalbench_ci'), ask it to identify the top product by sales in that table.",
       "expected_trajectory": [
         "search_catalog",
         "ask_data_insights"
       ],
       "env": {
-        "GOOGLE_CLOUD_PROJECT": "ext-test-bigquery-analytics"
+        "GOOGLE_CLOUD_PROJECT": "${GOOGLE_CLOUD_PROJECT}"
       },
       "kind": "tools",
       "max_turns": 4
     },
     {
       "id": "bq-insight-and-forecast",
-      "starting_prompt": "What are the top products by sales in the table 'sales_data' in dataset 'evalbench_ci' and project 'ext-test-bigquery-analytics'?",
+      "starting_prompt": "What are the top products by sales in the table 'sales_data' in dataset 'evalbench_ci' and project '${GOOGLE_CLOUD_PROJECT}'?",
       "conversation_plan": "First, ask the agent to find the top products by sales in the sales_data table. After it identifies the top products, ask it to forecast the sales for the top product for the next 5 steps.",
       "expected_trajectory": [
         "ask_data_insights",
         "forecast"
       ],
       "env": {
-        "GOOGLE_CLOUD_PROJECT": "ext-test-bigquery-analytics"
+        "GOOGLE_CLOUD_PROJECT": "${GOOGLE_CLOUD_PROJECT}"
       },
       "kind": "tools",
       "max_turns": 4

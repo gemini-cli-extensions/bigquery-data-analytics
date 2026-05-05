@@ -25,13 +25,18 @@ scorers:
     model_config: /workspace/evals/gemini_2.5_pro_model.yaml
   behavioral_metrics:
     model_config: /workspace/evals/gemini_2.5_pro_model.yaml
+  skills_best_practices:
+    model_config: /workspace/evals/gemini_2.5_pro_model.yaml
+    skills_dir: /workspace/bigquery-data-analytics/skills
 
   # Performance
   turn_count: {}
   end_to_end_latency: {}
   tool_call_latency: {}
   token_consumption: {}
+  skills_trajectory: {}
 
 reporting:
   bigquery:
-    gcp_project_id: cloud-db-nl2sql
+    gcp_project_id: "${EVAL_REPORTING_PROJECT}"
+

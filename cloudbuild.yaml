@@ -27,12 +27,7 @@ steps:
       - |
         set -e
 
-        # Only run on release branches
-        if [[ "$_HEAD_BRANCH" != release-please-* ]]; then
-          echo "Not a release-please branch. Exiting."
-          exit 0
-        fi
-        echo "Release branch detected. Fetching PR data from GitHub API..."
+        echo "Fetching PR data from GitHub API..."
 
         # Fetch PR data and status code
         HTTP_STATUS=$(curl -s -o pr_data.json -w "%{http_code}" -H "Authorization: token $$GITHUB_TOKEN" \
@@ -50,15 +45,22 @@ steps:
         PR_LABELS=$(echo "$$PR_DATA" | jq -r '[.labels[].name] | join(",")')
         PR_TITLE=$(echo "$$PR_DATA" | jq -r '.title')
 
-        # Determine Release Version (Use double quotes and $$ for bash variables)
-        if [[ "$$PR_LABELS" == *"autorelease: pending"* ]]; then
+        # Check if execution labels are present
+        if [[ "$$PR_LABELS" != *"autorelease: pending"* && "$$PR_LABELS" != *"ci:run-evals"* ]]; then
+          echo "PR does not have 'autorelease: pending' or 'ci:run-evals' label. Skipping execution."
+          exit 0
+        fi
+        echo "Execution label detected. Processing release version context..."
+
+        # Determine Release Version based on branch name
+        if [[ "$_HEAD_BRANCH" == release-please-* ]]; then
           if [[ "$$PR_TITLE" =~ release\ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
             export RELEASE_VERSION="$${BASH_REMATCH[1]}"
           else
-            export RELEASE_VERSION="unknown"
+            export RELEASE_VERSION="pr-$_PR_NUMBER-release-unknown"
           fi
         else
-          export RELEASE_VERSION="unknown"
+          export RELEASE_VERSION="pr-$_PR_NUMBER-ci-run-evals"
         fi
 
         # Workaround for evalbench bug: settings are only applied if path basename matches extension ID

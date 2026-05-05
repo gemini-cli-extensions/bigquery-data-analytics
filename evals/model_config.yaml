@@ -12,12 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-gemini_cli_version: "@google/gemini-cli@0.38.1"
+gemini_cli_version: "@google/gemini-cli@latest"
 generator: gemini_cli
 env:
   GOOGLE_CLOUD_PROJECT: "${GOOGLE_CLOUD_PROJECT}"
   GOOGLE_CLOUD_LOCATION: "global"
   GOOGLE_GENAI_USE_VERTEXAI: "true"
+  GEMINI_CLI_TRUST_WORKSPACE: "true"
 setup:
   extensions:
     # Points to the symlink created in cloudbuild.yaml to match the extension ID

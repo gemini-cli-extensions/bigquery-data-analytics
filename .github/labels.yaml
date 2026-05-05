@@ -84,3 +84,7 @@
 - name: 'release-please:force-run'
   color: bdca82
   description: Manually trigger the release please workflow on a PR.
+
+- name: 'ci:run-evals'
+  color: 4285f4
+  description: Manually trigger the evaluation CI pipeline on a PR.

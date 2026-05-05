@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.2.1...0.2.2) (2026-05-05)
+
+
+### Features
+
+* Onboard bigquery-data-analytics to Evalbench CI pipeline ([#123](https://github.com/gemini-cli-extensions/bigquery-data-analytics/issues/123)) ([db1f480](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/db1f4806892f82db22fafa9d425eb2d26f3578b5))
+
 ## [0.2.1](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.2.0...0.2.1) (2026-04-21)
 
 

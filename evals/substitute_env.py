@@ -6,7 +6,8 @@ def main():
     workspace = os.environ.get('EVAL_WORKSPACE', '/workspace')
     yaml_paths = [
         os.path.join(workspace, 'evals/model_config.yaml'),
-        os.path.join(workspace, 'evals/run_config.yaml')
+        os.path.join(workspace, 'evals/run_config.yaml'),
+        os.path.join(workspace, 'evals/dataset.json')
     ]
     
     for yaml_path in yaml_paths:

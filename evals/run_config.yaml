@@ -38,4 +38,5 @@ scorers:
 
 reporting:
   bigquery:
-    gcp_project_id: cloud-db-nl2sql
+    gcp_project_id: "${EVAL_REPORTING_PROJECT}"
+

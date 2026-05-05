@@ -45,7 +45,7 @@ steps:
         PR_TITLE=$(echo "$$PR_DATA" | jq -r '.title')
 
         # Check if execution labels are present using exact matching via jq
-        if ! echo "$$PR_DATA" | jq -e '.labels | any(.name == "autorelease: pending" or .name == "ci:run-evals")' > /dev/null; then
+        if ! jq -e '.labels | any(.name == "autorelease: pending" or .name == "ci:run-evals")' pr_data.json > /dev/null; then
           echo "PR does not have 'autorelease: pending' or 'ci:run-evals' label. Skipping execution."
           exit 0
         fi

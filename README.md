@@ -170,7 +170,7 @@ codex plugin marketplace add GoogleCloudPlatform/data-agent-kit
 **2. Install the plugin:**
 
 ```bash
-codex plugin install bigquery-data-analytics@data-agent-kit
+codex plugin add bigquery-data-analytics@data-agent-kit
 ```
 
 **3. Set env vars:**

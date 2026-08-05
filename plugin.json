@@ -1,4 +1,5 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "bigquery-data-analytics",
   "version": "0.2.1",
   "description": "Connect, query, and generate data insights for BigQuery datasets and data.",
@@ -7,7 +8,11 @@
     "email": "data-cloud-ai-integrations@google.com"
   },
   "homepage": "https://cloud.google.com/bigquery",
-  "license": "Apache-2.0",
   "repository": "https://github.com/gemini-cli-extensions/bigquery-data-analytics",
-  "skills": "./skills/"
+  "license": "Apache-2.0",
+  "keywords": [
+    "bigquery",
+    "data-analytics",
+    "database"
+  ]
 }

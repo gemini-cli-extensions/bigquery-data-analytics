@@ -2,6 +2,18 @@
   "name": "bigquery-data-analytics",
   "version": "0.2.4",
   "description": "Connect, query, and generate data insights for BigQuery datasets and data.",
+  "mcpServers": {
+    "bigquery": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.10.0",
+        "--prebuilt",
+        "bigquery",
+        "--stdio"
+      ]
+    }
+  },
   "contextFileName": "BIGQUERY.md",
   "settings": [
     {

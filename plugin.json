@@ -14,5 +14,37 @@
     "bigquery",
     "data-analytics",
     "database"
-  ]
+  ],
+  "extensions": {
+    "com.google.cloud.data.agent-plugins": {
+      "config": [
+        {
+          "key": "BIGQUERY_PROJECT",
+          "title": "Project ID",
+          "description": "ID of the Google Cloud project"
+        },
+        {
+          "key": "BIGQUERY_LOCATION",
+          "title": "Location",
+          "description": "(Optional) Location of the BigQuery resources"
+        }
+      ],
+      "gemini": {
+        "mcpServerName": "bigquery",
+        "contextFileName": "BIGQUERY.md"
+      },
+      "codex": {
+        "interface": {
+          "displayName": "BigQuery Data Analytics",
+          "shortDescription": "Connect, query, and generate data insights for BigQuery.",
+          "developerName": "Google LLC",
+          "category": "Database",
+          "capabilities": [
+            "Read",
+            "Write"
+          ]
+        }
+      }
+    }
+  }
 }

@@ -7,7 +7,37 @@
     "email": "data-cloud-ai-integrations@google.com"
   },
   "homepage": "https://cloud.google.com/bigquery",
-  "license": "Apache-2.0",
   "repository": "https://github.com/gemini-cli-extensions/bigquery-data-analytics",
-  "skills": "./skills/"
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "userConfig": {
+    "bigquery_project": {
+      "title": "Project ID",
+      "description": "ID of the Google Cloud project",
+      "type": "string",
+      "sensitive": false
+    },
+    "bigquery_location": {
+      "title": "Location",
+      "description": "(Optional) Location of the BigQuery resources",
+      "type": "string",
+      "sensitive": false
+    }
+  },
+  "mcpServers": {
+    "bigquery": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.10.0",
+        "--prebuilt",
+        "bigquery",
+        "--stdio"
+      ],
+      "env": {
+        "BIGQUERY_PROJECT": "${user_config.bigquery_project}",
+        "BIGQUERY_LOCATION": "${user_config.bigquery_location}"
+      }
+    }
+  }
 }

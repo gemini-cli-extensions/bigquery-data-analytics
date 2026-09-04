@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.5](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.2.4...0.2.5) (2026-09-04)
+
+
+### Features
+
+* **plugin:** migrate from generated skills to the prebuilt MCP server ([#143](https://github.com/gemini-cli-extensions/bigquery-data-analytics/issues/143)) ([cb47fcf](https://github.com/gemini-cli-extensions/bigquery-data-analytics/commit/cb47fcf62c318fdb886ebd704efc22f214197363))
+
 ## [0.2.4](https://github.com/gemini-cli-extensions/bigquery-data-analytics/compare/0.2.3...0.2.4) (2026-08-28)
 
 
